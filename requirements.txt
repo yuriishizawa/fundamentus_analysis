@@ -5,3 +5,4 @@ seaborn
 beautifulsoup4
 selenium
 jupyter
+lxml

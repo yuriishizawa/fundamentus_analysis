@@ -1,0 +1,28 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "eamodio.gitlens",
+    "Gruntfuggly.todo-tree",
+    "jeff-hykin.better-dockerfile-syntax",
+    "mhutchie.git-graph",
+    "ms-azuretools.vscode-docker",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.vscode-jupyter-cell-tags",
+    "ms-toolsai.vscode-jupyter-slideshow",
+    "ms-vscode.makefile-tools",
+    "ms-vsliveshare.vsliveshare",
+    "nhoizey.gremlins",
+    "njpwerner.autodocstring",
+    "redhat.vscode-yaml",
+    "shd101wyy.markdown-preview-enhanced",
+    "shinichi-takii.sql-bigquery",
+    "tamasfe.even-better-toml",
+    "usernamehw.errorlens",
+    "yzhang.markdown-all-in-one",
+    "charliermarsh.ruff"
+  ]
+}

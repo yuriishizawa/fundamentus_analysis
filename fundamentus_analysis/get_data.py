@@ -69,10 +69,9 @@ class FundamentusData:
             "liq_min": 1e7,
         }
         for button, limit in buttons.items():
-            field = self.driver.find_element(by="name", value=button)
+            field = self.driver.find_element_by_name(button)
             field.click()
             field.send_keys(limit)
-
         search_button = self.driver.find_element(
             by="xpath", value="/html/body/div[1]/div[2]/form/input"
         )

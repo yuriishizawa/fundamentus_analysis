@@ -102,10 +102,7 @@ class FundamentusData:
             "Patrim. Líq",
         ]
         df_new = pd.read_html(self.driver.page_source.replace(",", "."))[0][columns]
-        df_new[div_yield] = (
-            df_new[div_yield].str.replace("%", "").astype("float").div(100)
-        )
-        df_new[mrg_liq] = df_new[mrg_liq].str.replace("%", "").astype("float").div(100)
+        df_new[[div_yield, mrg_liq]] = df_new[[div_yield, mrg_liq]].replace('%', '', regex=True).astype(float).div(100)
         logger.info("Data retrieved")
         self.close_driver()
         return df_new

@@ -69,7 +69,7 @@ class FundamentusData:
             "liq_min": 1e7,
         }
         for button, limit in buttons.items():
-            field = self.driver.find_element_by_name(button)
+            field = self.driver.find_element(by="name", value=button)
             field.click()
             field.send_keys(limit)
         search_button = self.driver.find_element(
@@ -102,7 +102,12 @@ class FundamentusData:
             "Patrim. Líq",
         ]
         df_new = pd.read_html(self.driver.page_source.replace(",", "."))[0][columns]
-        df_new[[div_yield, mrg_liq]] = df_new[[div_yield, mrg_liq]].replace('%', '', regex=True).astype(float).div(100)
+        df_new[[div_yield, mrg_liq]] = (
+            df_new[[div_yield, mrg_liq]]
+            .replace("%", "", regex=True)
+            .astype(float)
+            .div(100)
+        )
         logger.info("Data retrieved")
         self.close_driver()
         return df_new

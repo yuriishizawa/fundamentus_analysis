@@ -1,0 +1,106 @@
+[project]
+name = "fundamentus-analysis"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Yuri Ishizawa", email = "yuriishizawa@gmail.com" }
+]
+dependencies = [
+    "selenium>=4.20.0",
+    "pandas>=2.2.2",
+    "lxml>=5.2.1",
+    "loguru>=0.7.2",
+]
+readme = "README.md"
+requires-python = ">= 3.9, < 3.13"
+
+[tool.rye.scripts]
+tests = "python -m unittest tests"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ipykernel>=6.29.4",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["fundamentus_analysis"]
+
+[tool.ruff]
+extend-include = ["*.ipynb"]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.10
+target-version = "py310"
+
+[tool.ruff.lint]
+exclude = ["*.ipynb"]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+select = [
+    "F",   # Pyflake
+    "E",   # Errors
+    "W",   # Warnings
+    "C90", # mccabe complexity
+    "N",
+    "PYI",
+    "I",
+    "UP",
+]
+ignore = []
+
+# Enable the isort rules.
+extend-select = ["I"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"

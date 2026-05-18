@@ -13,6 +13,8 @@ Example:
     ```
 """
 
+from io import StringIO
+
 import pandas as pd
 from selenium import webdriver
 
@@ -101,7 +103,8 @@ class FundamentusData:
             "Liq.2meses",
             "Patrim. Líq",
         ]
-        df_new = pd.read_html(self.driver.page_source.replace(",", "."))[0][columns]
+        html = StringIO(self.driver.page_source.replace(",", "."))
+        df_new = pd.read_html(html)[0][columns]
         df_new[[div_yield, mrg_liq]] = (
             df_new[[div_yield, mrg_liq]]
             .replace("%", "", regex=True)
